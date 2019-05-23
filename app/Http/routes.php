@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -12,7 +14,23 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    // return view('welcome');
+
+    /*********2nd way*****************/
+
+ //   if(Auth::check()){
+ //
+ //   	return "the user is logged in";
+ //   }
+
+/**************redirect user to a page after login*********/
+//    if(Auth::attempt(['username'=>$username, 'password'=>$password])){
+//
+//   	return redirect()->intended('/admin');
+//
+ //   }
+
+Auth::logout();
 });
 
 Route::auth();
