@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    // return view('welcome');
+    return view('welcome');
 
     /*********2nd way*****************/
 
@@ -30,9 +30,19 @@ Route::get('/', function () {
 //
  //   }
 
-Auth::logout();
-});
+// Auth::logout();
+ });
 
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+
+/**********************Middleware*******************/
+
+// for multiple middlewares, add a ',' after role and add middlewares like ['role', 'auth', 'web']
+
+Route::get('/admin/user/roles',  ['middleware'=>'role', function(){
+
+	return "Middleware Role";
+
+}]);
