@@ -25,13 +25,22 @@ class HomeController extends Controller
      */
     public function index(request $request)
     {
-       //  $user = Auth::user();
+      
+        // $request->session()->put(['kare'=>'master', 'student']);
 
-      //  return view('home', compact('user'));
+        // $request->session()->get('kare');
 
-        $request->session()->put(['kare'=>'master']);
+        /*****Updating session********/
 
-       return $request->session()->all();
+        // session(['kare2'=>'gamer']);
+
+        // return session('kare2');
+
+        /******************Deleting session************/
+        // $request->session()->forget('kare');
+
+        $request->session()->flush();
+        return $request->session()->all();
 
         // return view('home');
     }
