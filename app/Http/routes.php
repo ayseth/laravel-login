@@ -50,4 +50,4 @@ Route::get('/admin/user/roles',  ['middleware'=>'role', function(){
 
 /*******Admin*****************/
 
-Route::get('/admin', 'AdminControlle@index');
+Route::get('/admin', 'AdminController@index');
