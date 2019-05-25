@@ -23,10 +23,16 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(request $request)
     {
-        $user = Auth::user();
+       //  $user = Auth::user();
 
-        return view('home', compact('user'));
+      //  return view('home', compact('user'));
+
+        $request->session()->put(['kare'=>'master']);
+
+       return $request->session()->all();
+
+        // return view('home');
     }
 }
