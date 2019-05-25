@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class RoleMiddleware
+class IsAdmin
 {
     /**
      * Handle an incoming request.
@@ -14,13 +14,9 @@ class RoleMiddleware
      * @return mixed
      */
     public function handle($request, Closure $next)
+
     {
-        /******before the request********/
-
-
-
-
+        
         return $next($request);
-        /*****after request/ response*****/
     }
 }

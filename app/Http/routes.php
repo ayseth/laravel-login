@@ -14,8 +14,13 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	
+    $user = Auth::user();
 
+    if($user->isAdmin()){
+
+    	echo "admin yeeeeees";
+    }
     /*********2nd way*****************/
 
  //   if(Auth::check()){
