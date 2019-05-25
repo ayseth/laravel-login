@@ -14,13 +14,8 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-	
-    $user = Auth::user();
 
-    if($user->isAdmin()){
-
-    	echo "admin yeeeeees";
-    }
+   return view('welcome');
     /*********2nd way*****************/
 
  //   if(Auth::check()){
@@ -51,3 +46,8 @@ Route::get('/admin/user/roles',  ['middleware'=>'role', function(){
 	return "Middleware Role";
 
 }]);
+
+
+/*******Admin*****************/
+
+Route::get('/admin', 'AdminControlle@index');
