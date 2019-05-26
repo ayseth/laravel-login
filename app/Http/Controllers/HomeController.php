@@ -39,8 +39,21 @@ class HomeController extends Controller
         /******************Deleting session************/
         // $request->session()->forget('kare');
 
-        $request->session()->flush();
-        return $request->session()->all();
+        /**********flushing session ***********/
+
+        // $request->session()->flush();
+        // return $request->session()->all();
+
+        /******flash data*************/
+
+        $request->session()->flash('message', 'Post created');
+
+        return $request->session()->get('message');        //flashes a message
+
+       // $request->session()->reflash();          //keeps the data a little longer than flash
+
+        //$request->session()->keep('message'); //keep a specific message for alonger time than other messages
+
 
         // return view('home');
     }
