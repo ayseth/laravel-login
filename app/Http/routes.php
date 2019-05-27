@@ -1,6 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Auth;
+// use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +16,7 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
 
-   return view('welcome');
+   // return view('welcome');
     /*********2nd way*****************/
 
  //   if(Auth::check()){
@@ -31,23 +32,38 @@ Route::get('/', function () {
  //   }
 
 // Auth::logout();
+
+/***************MAIL GUN********************/
+$data = [
+
+	'title'=> 'Hey there hope you are having a good day',
+	'content' => 'This is a post to show if mail gun is working or not'
+
+];
+
+Mail::send('emails.test', $data, function($message) //emails.test is a view
+{
+
+	$message->to('aysait@gmail.com', 'Abir Sait')->subject('Hey there how are you ?');           //mail going to
+});         
+
  });
 
-Route::auth();
+// Route::auth();
 
-Route::get('/home', 'HomeController@index');
+// Route::get('/home', 'HomeController@index');
 
-/**********************Middleware*******************/
+// /**********************Middleware*******************/
 
-// for multiple middlewares, add a ',' after role and add middlewares like ['role', 'auth', 'web']
+// // for multiple middlewares, add a ',' after role and add middlewares like ['role', 'auth', 'web']
 
-Route::get('/admin/user/roles',  ['middleware'=>'role', function(){
+// Route::get('/admin/user/roles',  ['middleware'=>'role', function(){
 
-	return "Middleware Role";
+// 	return "Middleware Role";
 
-}]);
+// }]);
 
 
-/*******Admin*****************/
+// /*******Admin*****************/
 
-Route::get('/admin', 'AdminController@index');
+// Route::get('/admin', 'AdminController@index');
