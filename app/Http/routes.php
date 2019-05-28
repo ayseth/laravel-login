@@ -2,6 +2,8 @@
 
 // use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use Mailgun\Mailgun;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -44,7 +46,7 @@ $data = [
 Mail::send('emails.test', $data, function($message) //emails.test is a view
 {
 
-	$message->to('aysait@gmail.com', 'Abir Sait')->subject('Hey there how are you ?');           //mail going to
+	$message->to('aysait101@gmail.com', 'Abir Sait')->subject('Hey there how are you ?');           //mail going to
 });         
 
  });
